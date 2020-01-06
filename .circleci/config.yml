@@ -3,6 +3,7 @@ executors:
   docker-publisher:
     environment:
       PROJECT_NAME: tp2-team-3
+
     docker:
       - image: circleci/buildpack-deps:stretch
 jobs:
@@ -40,6 +41,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker # Ask circleci new Docker Engine to build outside of container
+      - run: ls
       - run:
           name: Build Docker image
           command: docker build -t $DOCKERHUB_USERNAME/${PROJECT_NAME}:latest ./Docker/nodejs/Dockerfile --compress --force-rm --no-cache --pull
