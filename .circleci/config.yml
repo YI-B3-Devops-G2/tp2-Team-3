@@ -23,20 +23,16 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      # npm install
+      # yarn install
       - run:
           name: Install Dependencies
-          command: npm install
+          command: yarn install
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # ESLint & Prettier
-      - run:
-          name: ESLint & Prettier
-          command: npm eslint
 
   ##JOB
   build-image:
@@ -77,13 +73,7 @@ workflows:
   version: 2
   build-master:
     jobs:
-      - lint-code:
-          filters:
-            branches:
-              only: master
       - build-image:
-          requires:
-            - lint-code
           filters:
             branches:
               only: master
