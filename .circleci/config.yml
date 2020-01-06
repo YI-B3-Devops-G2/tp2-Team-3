@@ -22,7 +22,7 @@ jobs:
           paths:
             - ./image.tar
   publish-latest:
-    executor: docker-publisher
+    executor: docker
     steps:
       - attach_workspace:
           at: /tmp/workspace
