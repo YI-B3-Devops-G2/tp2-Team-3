@@ -6,7 +6,6 @@ executors:
     docker:
       - image: circleci/node:12.14
 jobs:
-  docker:
   build:
     executor: nodejs
     steps:
@@ -24,7 +23,7 @@ jobs:
           paths:
             - ./image.tar
   publish-latest:
-    executor: docker
+    executor: nodejs
     steps:
       - attach_workspace:
           at: /tmp/workspace
@@ -37,3 +36,11 @@ jobs:
           command: |
             echo "twizou" | docker login -u "twizou" --password-stdin
             docker push $IMAGE_NAME:latest
+
+workflows:
+  myworkflow:
+    jobs:
+      - build
+      - publish-latest:
+          requires:
+            - build
