@@ -1,4 +1,4 @@
-FROM node:13.3-alpine
+FROM node:12.14-alpine
 ENV PORT 8080
 ENV DB_USER postgres
 ENV DB_PASSWORD postgres
