@@ -2,8 +2,8 @@ version: 2
 executors:
     environment:
       IMAGE_NAME: antoinehugo/team3-api
-  docker:
-    - image: circleci/buildpack-deps:stretch
+docker:
+  - image: circleci/buildpack-deps:stretch
 jobs:
   build:
     docker:
