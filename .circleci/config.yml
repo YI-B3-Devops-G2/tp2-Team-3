@@ -2,7 +2,7 @@ version: 2.1
 executors:
   docker-publisher:
     environment:
-      PROJECT_NAME: tp-Team-3
+      PROJECT_NAME: tp-team-3
     docker:
       - image: circleci/buildpack-deps:stretch
 jobs:
