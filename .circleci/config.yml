@@ -10,7 +10,7 @@ jobs:
   lint-code:
     docker:
       # specify the version you desire here
-      - image: circleci/node:12.13.0
+      - image: circleci/node:12.14-alpine
 
     working_directory: ~/repo
 
