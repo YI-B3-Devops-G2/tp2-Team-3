@@ -50,6 +50,9 @@ jobs:
       - run:
           name: Archive nginx Docker image
           command: docker save -o ./${PROJECT_NAME}_image.tar $DOCKERHUB_USERNAME/${PROJECT_NAME}:latest
+      - run:
+          name: View tree
+          command: ls
       - persist_to_workspace:
             root: .
             paths:
