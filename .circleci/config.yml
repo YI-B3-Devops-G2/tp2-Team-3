@@ -60,11 +60,11 @@ jobs:
     executor: docker-publisher
     steps:
       - attach_workspace:
-          at: /tmp/workspace
+          at: ./
       - setup_remote_docker
       - run:
           name: Load archived Docker image
-          command: docker load -i /tmp/workspace/${PROJECT_NAME}.tar
+          command: docker load -i ./${PROJECT_NAME}.tar
       # - run:
       #     name: Rename nginx Docker image
       #     command: docker tag docker_nginx mrzyro/tp2-team-3_nginx:latest
