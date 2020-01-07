@@ -1,25 +1,17 @@
-# tp2-nicolashumbert-hugo
+# tp2-Team-3
 
-# B3 Devops - TP 2
+# B3 Devops - Projet
 
 ## Info
+- mail: antoine.mousset@ynov.com
+- github_username: nrgix2
 - mail: hugo.nicolashumbert@ynov.com
 - github_username: twizou
 
 ## Pré-requis:
-Docker
-Navigateur web
+
 
 ## Composants:
-Docker-compose
-Dockerfile
-Server.js
-package*.json
-gitignore
+
 
 ## Startup project
-Executer la commande dans le dossier du projet
-```
-docker-compose up --build
-```
-
