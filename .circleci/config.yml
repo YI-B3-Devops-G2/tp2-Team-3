@@ -65,14 +65,16 @@ jobs:
       - run:
           name: Load archived Docker image
           command: docker load -i /tmp/workspace/image.tar
-      # - run:
-      #     name: Rename nginx Docker image
-      #     command: docker tag docker_nginx mrzyro/tp2-team-3_nginx:latest
+      #- run:
+      #    name: TAG Docker image
+      #    command: docker tag $DOCKERHUB_USERNAME/${PROJECT_NAME}:latest $DOCKERHUB_USERNAME/$PROJECT_NAME:${CIRCLE_TAG/v/''}
       - run:
-          name: Publish image to Docker Hub
-          command: |
-            echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-            docker push $DOCKERHUB_USERNAME/${PROJECT_NAME}:latest
+          name: Connect to Docker Hub
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run:
+          name: Push image to Docker Hub
+          command: docker push $DOCKERHUB_USERNAME/$PROJECT_NAME:latest
+            # docker push $DOCKERHUB_USERNAME/$PROJECT_NAME:${CIRCLE_TAG/v/''}
 workflows:
   version: 2
   build-master:
