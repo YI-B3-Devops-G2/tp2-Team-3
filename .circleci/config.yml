@@ -53,18 +53,18 @@ jobs:
       - persist_to_workspace:
             root: .
             paths:
-              - ./tmp/workspace/${PROJECT_NAME}_image.tar
+              - /.circleci/project${PROJECT_NAME}_image.tar
 
   ##JOB
   publish-latest:
     executor: docker-publisher
     steps:
       - attach_workspace:
-          at: /tmp/workspace
+          at: /.circleci/project
       - setup_remote_docker
       - run:
           name: Load archived Docker image
-          command: docker load -i /tmp/workspace/${PROJECT_NAME}_image.tar
+          command: docker load -i /.circleci/project/${PROJECT_NAME}_image.tar
       # - run:
       #     name: Rename nginx Docker image
       #     command: docker tag docker_nginx mrzyro/tp2-team-3_nginx:latest
