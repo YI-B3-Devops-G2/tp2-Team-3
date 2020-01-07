@@ -52,7 +52,7 @@ jobs:
           command: docker save -o ./${PROJECT_NAME}_image.tar $DOCKERHUB_USERNAME/${PROJECT_NAME}:latest
       - run:
           name: View tree
-          command: ls
+          command: ls && pwd
       - persist_to_workspace:
             root: ./
             paths:
