@@ -49,14 +49,14 @@ jobs:
           command: docker build -t $DOCKERHUB_USERNAME/${PROJECT_NAME}:latest . --compress --force-rm --no-cache --pull
       - run:
           name: Archive nginx Docker image
-          command: docker save -o ./${PROJECT_NAME}_image.tar $DOCKERHUB_USERNAME/${PROJECT_NAME}:latest
+          command: docker save -o ./image.tar $DOCKERHUB_USERNAME/${PROJECT_NAME}:latest
       - run:
           name: View tree
           command: ls && pwd
       - persist_to_workspace:
             root: .
             paths:
-              - ./$PROJECT_NAME_image.tar
+              - ./image.tar
 
   ##JOB
   publish-latest:
@@ -67,7 +67,7 @@ jobs:
       - setup_remote_docker
       - run:
           name: Load archived Docker image
-          command: docker load -i ./${PROJECT_NAME}_image.tar
+          command: docker load -i ./image.tar
       # - run:
       #     name: Rename nginx Docker image
       #     command: docker tag docker_nginx mrzyro/tp2-team-3_nginx:latest
