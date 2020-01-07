@@ -53,7 +53,7 @@ jobs:
       - persist_to_workspace:
             root: .
             paths:
-              - ./${PROJECT_NAME}_image.tar
+              - /tmp/workspace/${PROJECT_NAME}_image.tar
 
   ##JOB
   publish-latest:
