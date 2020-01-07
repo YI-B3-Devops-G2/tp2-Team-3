@@ -54,9 +54,9 @@ jobs:
           name: View tree
           command: ls
       - persist_to_workspace:
-            root: .
+            root: ./
             paths:
-              - ./${PROJECT_NAME}_image.tar
+              - ${PROJECT_NAME}_image.tar
 
   ##JOB
   publish-latest:
